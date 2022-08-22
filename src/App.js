@@ -1,6 +1,6 @@
 import { ChakraProvider } from '@chakra-ui/react';
-import { InboxScreen } from './InboxScreen';
 import { LoginScreen } from './LoginScreen';
+import { InboxScreen } from './pages/InboxScreen';
 import { theme } from './theme';
 import { useAuth } from './useAuth';
 

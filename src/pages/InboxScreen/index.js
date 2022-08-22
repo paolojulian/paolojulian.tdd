@@ -1,10 +1,9 @@
-import React from 'react';
+import { Box, Heading, Icon } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
-import { Box, Heading } from '@chakra-ui/react';
-import { Icon } from '@chakra-ui/react';
-import { TaskList } from './components/TaskList';
-import { EmptyState } from './components/EmptyState';
-import { useTasks } from './useTasks';
+import React from 'react';
+import { EmptyState } from '../../components/EmptyState';
+import { TaskList } from '../../components/TaskList';
+import { useTasks } from '../../useTasks';
 
 const FrownIcon = (props) => (
   <Icon
@@ -27,6 +26,10 @@ export const InboxScreen = ({ error }) => {
 
   const archiveTask = (archive, id) => {
     dispatch({ type: archive ? 'ARCHIVE_TASK' : 'INBOX_TASK', id });
+  };
+
+  const deleteTask = (id) => {
+    dispatch({ type: 'DELETE_TASK', id });
   };
 
   const togglePinTask = (state, id) => {
@@ -66,6 +69,7 @@ export const InboxScreen = ({ error }) => {
         onArchiveTask={archiveTask}
         onTogglePinTask={togglePinTask}
         onEditTitle={editTitle}
+        onDeleteTask={deleteTask}
       />
     </Box>
   );
